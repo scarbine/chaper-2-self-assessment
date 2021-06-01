@@ -8,7 +8,7 @@ const flowers = [
     },
     {
         id: 2,
-        color: "Variegated",
+        color: "Red",
         species: "Red Tulip",
         price: 1.10
     }
@@ -28,15 +28,17 @@ const addFlower = (flowerObject) => {
         object, the object should then be put into the
         `flowers` array.
     */
-    const lastIndex = flowers.length ;
+    const lastIndex = flowers.length -1;
     const currentLastFlower = flowers[lastIndex] ;
     const maxId = currentLastFlower.id ;
     const idNewFlower = maxId + 1 ;
 
-    flowersObject.id = idNewFlower ;
+    flowerObject.id = idNewFlower ;
+    flowers.push(flowerObject)
     
 
 }
+
 
 
 const findExpensiveFlowers = () => {
@@ -49,7 +51,11 @@ const findExpensiveFlowers = () => {
         greater than or equal to 1.00, it should be
         added to the `expensiveFlowers` array.
     */
-
+    for (const flower of flowers) {
+        if (flower.price >= 1){
+            expensiveFlowers.push(flower)
+        }
+    }
 
 
 
